@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soledad No Deseada | Trabajo Social UCA</title>
+    <!-- Fuentes de Google: Playfair Display para elegancia tipo Stradivarius e Inter para claridad -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-pink: #e8b4bc;       /* Rosa empolvado principal */
+            --bg-dark-pink: #d49da6;  /* Rosa un poco más profundo para contrastes */
+            --text-white: #ffffff;    /* Letras blancas puras */
+            --white-translucent: rgba(255, 255, 255, 0.85);
+            --card-bg: rgba(255, 255, 255, 0.12);
+            --card-border: rgba(255, 255, 255, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-pink);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Barra de navegación estilo boutique */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background-color: rgba(232, 180, 188, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-white);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-white);
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: opacity 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            opacity: 0.7;
+        }
+
+        /* Sección Hero (Portada principal) */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+            background: linear-gradient(135deg, var(--bg-pink) 0%, var(--bg-dark-pink) 100%);
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+            max-width: 900px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .badge-subject {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            border: 1px solid var(--text-white);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        /* Contenedor general */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        /* Secciones de contenido tipo "Editorial de Moda" */
+        section {
+            padding: 5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        /* Tarjetas de contenido translúcidas */
+        .editorial-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 3rem;
+            border-radius: 4px;
+            backdrop-filter: blur(5px);
+            margin-bottom: 2rem;
+        }
+
+        .quote-box {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.4rem;
+            line-height: 1.8;
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+            border-left: 2px solid var(--text-white);
+        }
+
+        /* Cuadrícula de objetivos */
+        .grid-objetivos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .obj-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 2.5rem;
+            border-radius: 4px;
+            transition: transform 0.3s ease;
+        }
+
+        .obj-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .obj-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            opacity: 0.6;
+            margin-bottom: 1rem;
+        }
+
+        .obj-item p {
+            font-size: 1.05rem;
+            font-weight: 300;
+        }
+
+        /* Contenedor de Imagen */
+        .image-container {
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 1px solid var(--card-border);
+        }
+
+        .image-caption {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-top: 0.75rem;
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
+
+        /* Pie de página */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            background-color: var(--bg-dark-pink);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        footer p {
+            opacity: 0.9;
+        }
+
+        /* Responsivo móvil */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none; /* Simplificado para móviles o limpio */
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .editorial-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabecera -->
+    <header>
+        <a href="#" class="logo">Social Work UCA</a>
+        <nav>
+            <ul>
+                <li><a href="#about">Proyecto</a></li>
+                <li><a href="#objectives">Objetivos</a></li>
+                <li><a href="#context">El Bosque</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Portada Hero -->
+    <section class="hero">
+        <span class="badge-subject">Informática para el Trabajo Social</span>
+        <h1>Soledad no deseada en personas mayores del medio rural</h1>
+        <p class="subtitle">Universidad de Cádiz — Curso 2026/2027</p>
+    </section>
+
+    <!-- Contenido Principal -->
+    <div class="container">
+        
+        <!-- De qué trata -->
+        <section id="about">
+            <h2 class="section-title">De qué trata el proyecto</h2>
+            <div class="editorial-card">
+                <p style="font-size: 1.1rem; font-weight: 300; margin-bottom: 1.5rem;">
+                    Se aborda el problema de la soledad no deseada en personas mayores que viven en el medio rural, especialmente enfocado en las personas mayores de <strong>El Bosque, Cádiz</strong>. Se analizan las dificultades que pueden tener estas personas para desarrollar correctamente su autonomía y la satisfacción de necesidades básicas y relacionales.
+                </p>
+                <div class="quote-box">
+                    "¿Cómo influye el entorno rural en la soledad no deseada de las personas mayores y qué papel pueden desempeñar los Servicios Sociales para prevenirla y mejorar su bienestar y calidad de vida?"
+                </div>
+            </div>
+        </section>
+
+        <!-- Imagen representativa -->
+        <div class="image-container">
+            <!-- Cambia img/nombre-de-tu-imagen.png por la ruta real de tu foto en la carpeta img/ -->
+            <img src="img/nombre-de-tu-imagen.png" alt="Personas mayores sentadas en un banco de El Bosque">
+            <p class="image-caption">Personas mayores sentadas en un banco de El Bosque</p>
+        </div>
+
+        <!-- Objetivos -->
+        <section id="objectives">
+            <h2 class="section-title">Objetivos del estudio</h2>
+            <div class="grid-objetivos">
+                <div class="obj-item">
+                    <div class="obj-number">01</div>
+                    <p>Identificar los principales factores personales, familiares, sociales y territoriales que contribuyen a la soledad no deseada en las personas mayores que viven en el medio rural.</p>
+                </div>
+                <div class="obj-item">
+                    <div class="obj-number">02</div>
+                    <p>Analizar las consecuencias directas de la soledad no deseada en el bienestar emocional, las relaciones sociales y la calidad de vida de las personas mayores.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>Makarena Castillo Romero — Grado en Trabajo Social (UCA)</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.7;">Repositorio oficial del proyecto académico</p>
+    </footer>
+
+</body>
+</html>
