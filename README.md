@@ -27,3 +27,5 @@ Se aborda el problema de la soledad no deseada en personas mayores que viven en 
 ## Autoría
 
 Makarena Castillo Romero — curso 2026/2027
+
+El profesor se va a tirar por el balcón
