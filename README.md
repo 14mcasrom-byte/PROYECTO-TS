@@ -15,7 +15,7 @@ Se aborda el problema de la soledad no deseada en personas mayores que viven en 
 
 ## Web del proyecto
 
-[Visita la web]([https://14mcasrom-byte.github.io/PROYECTO-TS/](https://14mcasrom-byte.github.io/PROYECTO-TS/))
+[Visita la web]([https://14mcasrom-byte.github.io/PROYECTO-TS/])
 
 ![3 Personas mayores sentadas en un banco de El Bosque](img/[nombre-de-tu-imagen].png)
 
